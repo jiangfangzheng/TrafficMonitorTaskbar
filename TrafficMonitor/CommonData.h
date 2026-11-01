@@ -188,8 +188,8 @@ struct MainConfigData
 {
     int m_transparency{ 100 };          //窗口透明度
     bool m_show_more_info{ false };     //显示更多信息
-    bool m_show_task_bar_wnd{ false };  //显示任务栏窗口
-    bool m_hide_main_window;            //隐藏主窗口
+    bool m_show_task_bar_wnd{ true };   //显示任务栏窗口
+    bool m_hide_main_window{ true };    //隐藏主窗口
     //bool m_tbar_show_cpu_memory;      //任务栏窗口显示CPU和内存利用率
 
     int m_position_x;   //窗口位置的x坐标
@@ -300,19 +300,19 @@ struct TaskBarSettingData : public PublicSettingData
     bool auto_adapt_light_theme{ true };            //是否自动适应浅色主题
     int dark_default_style{ 0 };                    //深色主题时使用的预设方案
     int light_default_style{ -1 };                  //浅色主题时使用的预设方案
-    bool auto_set_background_color{ false };        //根据任务栏颜色自动设置背景色
+    bool auto_set_background_color{ true };        //根据任务栏颜色自动设置背景色
     bool auto_save_taskbar_color_settings_to_preset{};    //当启用“自动适应Windows10深色/浅色主题”时，是否在颜色设置有更改时自动将当前颜色设置保存到对应的预设
     bool IsTaskbarTransparent() const;
     void SetTaskabrTransparent(bool transparent);
 
     CTaskbarItemOrderHelper item_order;
-    DisplayItemSet display_item{ TDI_UP, TDI_DOWN };      //任务栏窗口显示的项目
+    DisplayItemSet display_item{ TDI_UP, TDI_DOWN, TDI_CPU, TDI_MEMORY };      //任务栏窗口显示的项目
     StringSet plugin_display_item;                  //任务窗口显示的插件项目
 
     bool show_taskbar_wnd_in_secondary_display{ false };    //是否在副显示器上显示任务栏窗口
     int secondary_display_index{};      //在第几个副显示器上显示任务栏窗口
     bool value_right_align{ false };    //数值是否右对齐
-    int digits_number{ 4 };             //数据位数
+    int digits_number{ 5 };             //数据位数
     bool horizontal_arrange{ true };    //水平排列
     bool show_status_bar{ true };       //显示 CPU/内存的状态条
     bool tbar_wnd_on_left{ false };     //如果为true，则任务栏窗口显示在任务栏的左侧（或上方）
@@ -320,7 +320,7 @@ struct TaskBarSettingData : public PublicSettingData
     bool cm_graph_type{ false };        //如果为false，默认原样式，柱状图显示占用率，如为true，滚动显示占用率
     bool show_graph_dashed_box{ true }; //显示占用图虚线框
 
-    int item_space{};                   //项目间距
+    int item_space{ 4 };                //项目间距
     int vertical_margin{};              //项目垂直间距
     int window_offset_top{};            //任务栏窗口顶部边距
     int window_offset_left{};           //任务栏窗口左侧边距
@@ -349,11 +349,11 @@ struct TaskBarSettingData : public PublicSettingData
 //选项设置中“常规设置”的数据
 struct GeneralSettingData
 {
-    bool check_update_when_start{ true };
+    bool check_update_when_start{ false };
     int update_source{};                    //更新源。0: GitHub; 1: Gitee
     bool auto_run{ false };
     bool auto_run_by_task_scheduler{ false };   //是否通过任务计划程序实现开机自启
-    bool show_notify_icon{ true };    //显示通知区域图标
+    bool show_notify_icon{ false };    //显示通知区域图标
 //通知消息
     bool traffic_tip_enable{ false };       //是否启用流量超出时提示
     int traffic_tip_value;                  //要提示的流量临界值
@@ -384,7 +384,7 @@ struct GeneralSettingData
     };
     CpuUsageAcquireMethod cpu_usage_acquire_method{};  //获取CPU利用率的方式
 
-    bool portable_mode{ false };        //便携模式，如果为true，则程序所有数据都保存到exe所在目录下，否则保存到Appdata\Romaing目录下
+    bool portable_mode{ true };        //便携模式，如果为true，则程序所有数据都保存到exe所在目录下，否则保存到Appdata\Romaing目录下
     int monitor_time_span{ 1000 };    //监控的时间间隔
 
     std::wstring hard_disk_name;        //要监控的硬盘名称

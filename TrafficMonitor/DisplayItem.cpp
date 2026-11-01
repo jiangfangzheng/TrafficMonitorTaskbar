@@ -103,13 +103,13 @@ std::wstring CommonDisplayItem::DefaultString(bool is_main_window) const
             if (is_main_window)
                 default_text = CCommon::LoadText(IDS_UPLOAD_DISP, _T(": "));
             else
-                default_text = _T("↑: ");
+                default_text = _T("▲");
             break;
         case TDI_DOWN:
             if (is_main_window)
                 default_text = CCommon::LoadText(IDS_DOWNLOAD_DISP, _T(": "));
             else
-                default_text = _T("↓: ");
+                default_text = _T("▼");
             break;
         case TDI_TOTAL_SPEED:
             default_text = _T("↑↓: ");
@@ -127,7 +127,10 @@ std::wstring CommonDisplayItem::DefaultString(bool is_main_window) const
             default_text = CCommon::LoadText(IDS_CPU_FREQ, _T(": "));
             break;
         case TDI_MEMORY:
-            default_text = CCommon::LoadText(IDS_MEMORY_DISP, _T(": "));
+            if (is_main_window)
+                default_text = CCommon::LoadText(IDS_MEMORY_DISP, _T(": "));
+            else
+                default_text = _T("RAM: ");
             break;
         case TDI_GPU_USAGE:
             default_text = CCommon::LoadText(IDS_GPU_DISP, _T(": "));

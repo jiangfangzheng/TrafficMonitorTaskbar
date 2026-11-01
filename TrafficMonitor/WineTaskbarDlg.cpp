@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "WineTaskbarDlg.h"
 
 void CWineTaskbarDlg::InitTaskbarWnd()

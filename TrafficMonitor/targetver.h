@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 // °üÀ¨ SDKDDKVer.h ½«¶¨Òå¿ÉÓÃµÄ×î¸ß°æ±¾µÄ Windows Æ½Ì¨¡£
 

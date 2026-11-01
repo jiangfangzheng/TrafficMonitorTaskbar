@@ -85,20 +85,19 @@ CString CTaskbarItemOrderHelper::GetItemDisplayName(CommonDisplayItem item)
 
 bool CTaskbarItemOrderHelper::IsItemDisplayed(CommonDisplayItem item)
 {
-    bool displayed = true;
-    if (!item.IsPlugin())
+    //任务栏窗口的“显示设置”中只提供上传、下载、CPU利用率和内存利用率四个项目
+    if (item.IsPlugin())
+        return false;
+    switch (item.ItemType())
     {
-        if ((item == TDI_CPU_TEMP) && !theApp.m_general_data.IsHardwareEnable(HI_CPU))
-            displayed = false;
-        if ((item == TDI_GPU_TEMP) && !theApp.m_general_data.IsHardwareEnable(HI_GPU))
-            displayed = false;
-        if ((item == TDI_HDD_TEMP) && !theApp.m_general_data.IsHardwareEnable(HI_HDD))
-            displayed = false;
-        if (item == TDI_MAIN_BOARD_TEMP && !theApp.m_general_data.IsHardwareEnable(HI_MBD))
-            displayed = false;
+    case TDI_UP:
+    case TDI_DOWN:
+    case TDI_CPU:
+    case TDI_MEMORY:
+        return true;
+    default:
+        return false;
     }
-
-    return displayed;
 }
 
 void CTaskbarItemOrderHelper::NormalizeItemOrder()

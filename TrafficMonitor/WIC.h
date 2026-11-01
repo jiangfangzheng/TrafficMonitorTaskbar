@@ -1,4 +1,4 @@
-//Ê¹ÓÃ Windows Ó³Ïñ×é¼þ£¨WIC£©½«Í¼±ê£¨HICON£©×ª»»Îª¾ßÓÐÍ¸Ã÷¶ÈµÄPARGB32Î»Í¼£¬²¢Ìí¼Óµ½²Ëµ¥ÏîÖÐ
+ï»¿//Ê¹ÓÃ Windows Ó³Ïñ×é¼þ£¨WIC£©½«Í¼±ê£¨HICON£©×ª»»Îª¾ßÓÐÍ¸Ã÷¶ÈµÄPARGB32Î»Í¼£¬²¢Ìí¼Óµ½²Ëµ¥ÏîÖÐ
 //https://docs.microsoft.com/en-us/previous-versions/bb757020(v=msdn.10)
 
 #pragma once

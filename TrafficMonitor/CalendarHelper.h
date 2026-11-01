@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #define CALENDAR_WIDTH 7
 #define CALENDAR_HEIGHT 6
 

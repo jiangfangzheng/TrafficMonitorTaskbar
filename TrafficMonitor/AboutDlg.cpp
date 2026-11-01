@@ -120,6 +120,9 @@ BOOL CAboutDlg::OnInitDialog()
 
     SetDlgItemText(IDC_STATIC_VERSION, version_info);
 
+    //在Copyright上方显示修改版本信息
+    SetDlgItemText(IDC_STATIC_MODIFIED, _T("Jfz修改默认显示Taskbar版本"));
+
     //设置最后编译日期
     CString temp_str;
     GetDlgItemText(IDC_STATIC_COPYRIGHT, temp_str);
@@ -261,7 +264,7 @@ HBRUSH CAboutDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
     // TODO:  在此更改 DC 的任何特性
     //去掉static控件的灰色灰色背景
     UINT ctrl_id = pWnd->GetDlgCtrlID();
-    if (ctrl_id == IDC_STATIC_VERSION || ctrl_id == IDC_STATIC_COPYRIGHT || ctrl_id == IDC_STATIC)
+    if (ctrl_id == IDC_STATIC_VERSION || ctrl_id == IDC_STATIC_COPYRIGHT || ctrl_id == IDC_STATIC || ctrl_id == IDC_STATIC_MODIFIED)
     {
         static HBRUSH hBackBrush{};
         if (hBackBrush == NULL)
