@@ -31,7 +31,7 @@
 
 此外，源码编码编译适配：当前仓库中有部分 `.h/.cpp` 文件没有 UTF-8 BOM，在中文 Windows（代码页 936）下用 MSVC 编译时会把中文注释的换行吞掉，导致语法错误。为保证可编译，给缺少 BOM 且包含非 ASCII 字符的源文件补了 UTF-8 BOM；另有 2 个 UTF-16 LE 文件（`HistoryTrafficCalendarDlg.h`、`HistoryTrafficListDlg.h`）保持 UTF-16 编码不变。此项只影响文件编码，不改变程序逻辑。
 
-**TrafficMonitor项目原来的简介如下：**
+# TrafficMonitor项目原来的简介如下：
 
 **简体中文 | [English](./README_en-us.md)**
 
